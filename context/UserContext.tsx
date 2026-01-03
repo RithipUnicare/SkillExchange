@@ -24,7 +24,7 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children
                 setUser(response.data);
             }
         } catch (error) {
-            console.error('Error fetching user:', error);
+            console.log('Error fetching user:', error);
             setUser(null);
         } finally {
             setIsLoading(false);

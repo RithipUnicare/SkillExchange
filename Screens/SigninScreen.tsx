@@ -179,7 +179,7 @@ export default function SigninScreen({ navigation }: props) {
 
                         <Button
                             mode="text"
-                            onPress={() => navigation.navigate('login')}
+                            onPress={() => navigation.replace('login')}
                             style={styles.textButton}
                             disabled={loading}
                         >

@@ -38,7 +38,7 @@ export default function AdminHomeScreen({ navigation }: props) {
                 setProfiles(response.data.content);
             }
         } catch (error) {
-            console.error('Error loading profiles:', error);
+            console.log('Error loading profiles:', error);
         } finally {
             setLoading(false);
         }

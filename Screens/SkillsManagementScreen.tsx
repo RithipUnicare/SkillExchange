@@ -30,7 +30,7 @@ export default function SkillsManagementScreen({ navigation }: props) {
                 setSkills(response.data);
             }
         } catch (error) {
-            console.error('Error loading skills:', error);
+            console.log('Error loading skills:', error);
         }
     };
 

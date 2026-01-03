@@ -33,7 +33,7 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
                 setThemeModeState(savedTheme as ThemeMode);
             }
         } catch (error) {
-            console.error('Error loading theme preference:', error);
+            console.log('Error loading theme preference:', error);
         }
     };
 
@@ -42,7 +42,7 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
             await AsyncStorage.setItem(THEME_STORAGE_KEY, mode);
             setThemeModeState(mode);
         } catch (error) {
-            console.error('Error saving theme preference:', error);
+            console.log('Error saving theme preference:', error);
         }
     };
 

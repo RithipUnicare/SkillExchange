@@ -32,7 +32,7 @@ export default function ViewProfileScreen({ navigation, route }: props) {
                 setProfile(response.data);
             }
         } catch (error) {
-            console.error('Error loading profile:', error);
+            console.log('Error loading profile:', error);
             Alert.alert('Error', 'Failed to load profile');
         } finally {
             setLoading(false);
@@ -68,7 +68,7 @@ export default function ViewProfileScreen({ navigation, route }: props) {
                                 <View style={styles.header}>
                                     <Avatar.Image
                                         size={80}
-                                        source={{ uri: profile.profileImageUrl || 'https://via.placeholder.com/150' }}
+                                        source={{ uri: profile.profileImageUrl || 'https://picsum.photos/id/237/200/300' }}
                                     />
                                     <View style={styles.headerInfo}>
                                         <Text variant="headlineSmall" style={{ fontWeight: 'bold' }}>

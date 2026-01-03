@@ -125,7 +125,7 @@ export default function LoginScreen({ navigation }: props) {
 
                         <Button
                             mode="text"
-                            onPress={() => navigation.navigate('signin')}
+                            onPress={() => navigation.replace('signin')}
                             style={styles.textButton}
                             disabled={loading}
                         >

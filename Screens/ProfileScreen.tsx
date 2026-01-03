@@ -60,7 +60,7 @@ export default function ProfileScreen({ navigation }: props) {
             if (error.response?.status === 404) {
                 setIsEditing(true);
             }
-            console.error('Error loading profile:', error);
+            console.log('Error loading profile:', error);
         } finally {
             setLoading(false);
         }
@@ -73,7 +73,7 @@ export default function ProfileScreen({ navigation }: props) {
                 setAllSkills(response.data);
             }
         } catch (error) {
-            console.error('Error loading skills:', error);
+            console.log('Error loading skills:', error);
         }
     };
 
