@@ -85,12 +85,26 @@ export default function ProfileScreen({ navigation }: props) {
 
         setSaving(true);
         try {
-            const response = await apiService.createProfile(bio, collegeName, department, yearOfStudy, location);
+            let response;
+            if (profile) {
+                // Profile exists, so update it
+                console.log('Updating existing profile');
+                response = await apiService.updateProfile(bio, collegeName, department, yearOfStudy, location);
+            } else {
+                // No profile exists, create new one
+                console.log('Creating new profile');
+                response = await apiService.createProfile(bio, collegeName, department, yearOfStudy, location);
+            }
+
             if (response.success) {
                 Alert.alert('Success', 'Profile saved successfully');
                 loadProfile();
+            } else {
+                Alert.alert('Error', response.message || 'Failed to save profile');
             }
         } catch (error: any) {
+            console.error('Error saving profile:', error);
+            console.error('Error response:', error.response?.data);
             Alert.alert('Error', error.response?.data?.message || 'Failed to save profile');
         } finally {
             setSaving(false);
@@ -197,7 +211,7 @@ export default function ProfileScreen({ navigation }: props) {
                     <Card.Content style={styles.avatarContainer}>
                         <Avatar.Image
                             size={100}
-                            source={{ uri: profileImage || 'https://via.placeholder.com/150' }}
+                            source={{ uri: 'https://via.placeholder.com/150' }}
                         />
                         <Button mode="text" onPress={handleImagePicker} disabled={saving}>
                             Change Photo

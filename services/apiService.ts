@@ -160,12 +160,33 @@ class ApiService {
     }
 
     async createProfile(bio: string, collegeName: string, department: string, yearOfStudy: string, location: string) {
-        const response = await this.api.post(API_CONFIG.ENDPOINTS.PROFILES.CREATE, {
+        const payload = {
             bio,
             collegeName,
             department,
             yearOfStudy,
             location,
+        };
+        const response = await this.api.post(API_CONFIG.ENDPOINTS.PROFILES.CREATE, payload, {
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+        return response.data;
+    }
+
+    async updateProfile(bio: string, collegeName: string, department: string, yearOfStudy: string, location: string) {
+        const payload = {
+            bio,
+            collegeName,
+            department,
+            yearOfStudy,
+            location,
+        };
+        const response = await this.api.post(API_CONFIG.ENDPOINTS.PROFILES.CREATE, payload, {
+            headers: {
+                'Content-Type': 'application/json',
+            },
         });
         return response.data;
     }
